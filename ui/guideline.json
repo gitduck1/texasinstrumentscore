@@ -45,7 +45,6 @@
       "label": "NIGHT OF NIGHTS",
       "description": "",
       "fixedText": true,
-      "secretA": true,
       "action": "game",
       "game": "non"
     }

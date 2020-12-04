@@ -13,7 +13,7 @@ Tetris clone in HTML5
 
 * Voice clips should no longer overlap on game end
 
-## Previous versions @ [https://github.com/Dr-Ocelot/tetralegends](Dr-Ocelot/tetralegends)
+## Previous versions @ [Dr-Ocelot/tetralegends](https://github.com/Dr-Ocelot/tetralegends)
 
 ## ALPHA V1.0.0 - 2020-04-03
 

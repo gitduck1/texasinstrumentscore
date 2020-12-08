@@ -55,9 +55,14 @@
           "value": "standard"
         },
         {
-          "label": "TGM3",
+          "label": "TGM (Standard)",
           "fixedText": true,
           "value": "tgm3"
+        },
+		{
+          "label": "TGM Ace",
+          "fixedText": true,
+          "value": "ace"
         },
         {
           "label": "T99",
@@ -103,6 +108,21 @@
           "label": "N-Blox",
           "fixedText": true,
           "value": "nblox"
+        },
+		{
+          "label": "Uehara",
+          "fixedText": true,
+          "value": "uehara"
+        },
+				{
+          "label": "SNES T+Dr. M.",
+          "fixedText": true,
+          "value": "snesu"
+        },
+		{
+          "label": "Tengen",
+          "fixedText": true,
+          "value": "tengen"
         }
       ],
       "setting": "soundbank",
@@ -120,7 +140,12 @@
           "langOverride": "menu_general"
         },
         {
-          "label": "TGM3",
+          "label": "TGM 1",
+          "fixedText": true,
+          "value": "tgm1"
+        },
+		{
+          "label": "TGM 2/3/Ace",
           "fixedText": true,
           "value": "tgm3"
         },

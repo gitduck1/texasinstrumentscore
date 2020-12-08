@@ -661,7 +661,7 @@ export default class Piece extends GameModule {
     this.isDirty = true;
     if (!this.isDead) {
       this.parent.addScore('hardDrop', drop)
-      sound.add('land');
+      sound.add('harddrop');
       this.genDropParticles();
     }
     this.hasHardDropped = true;

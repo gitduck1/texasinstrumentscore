@@ -51,6 +51,31 @@ const levelUpdate = (game) => {
   return returnValue;
 };
 export const loops = {
+  death: {
+    update: (arg) => {
+      collapse(arg, true, 300);
+      if (arg.piece.inAre) {
+        initialDas(arg);
+        initialRotation(arg);
+        initialHold(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        respawnPiece(arg);
+        rotate(arg);
+        shifting(arg);
+      }
+      gravity(arg);
+      sonicDrop(arg);
+      firmDrop(arg);
+      classicLockdown(arg);
+      if (!arg.piece.inAre) {
+        hold(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+  },
+  
   novice: {
     update: (arg) => {
       collapse(arg, true, 300);
@@ -75,20 +100,53 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
-      if (game.stat.initPieces === 0 && game.stat.level !== 299) {
-        game.stat.level = game.stat.level + 1;
-      } else if (game.stat.level === 299 && !game.playedLevelStop) {
-        sound.add('tspin0')
-        game.playedLevelStop = true;
-      } else if (game.stat.level === 300) {
+      if (game.stat.level === 300) {
         $('#kill-message').textContent = locale.getString('ui', 'excellent');
         sound.killVox();
         sound.add('voxexcellent');
         game.end(true);
+      } else if (game.stat.initPieces === 0 && game.stat.level !== 299) {
+        game.stat.level = game.stat.level + 1;
+      } else if (game.stat.level === 299 && !game.playedLevelStop) {
+        sound.add('tspin0')
+        game.playedLevelStop = true;
       } else {
         game.stat.initPieces = game.stat.initPieces - 1;
       }
-      game.piece.gravity = 1000;
+      let gravityDenominator;
+           if (game.stat.level < 8)   gravityDenominator = 4;
+      else if (game.stat.level < 19)  gravityDenominator = 5;
+      else if (game.stat.level < 35)  gravityDenominator = 6;
+      else if (game.stat.level < 40)  gravityDenominator = 8;
+      else if (game.stat.level < 50)  gravityDenominator = 10;
+      else if (game.stat.level < 60)  gravityDenominator = 12;
+      else if (game.stat.level < 70)  gravityDenominator = 16;
+      else if (game.stat.level < 80)  gravityDenominator = 32;
+      else if (game.stat.level < 90)  gravityDenominator = 48;
+      else if (game.stat.level < 100) gravityDenominator = 64;
+      else if (game.stat.level < 108) gravityDenominator = 4;
+      else if (game.stat.level < 119) gravityDenominator = 5;
+      else if (game.stat.level < 125) gravityDenominator = 6;
+      else if (game.stat.level < 131) gravityDenominator = 8;
+      else if (game.stat.level < 139) gravityDenominator = 12;
+      else if (game.stat.level < 149) gravityDenominator = 32;
+      else if (game.stat.level < 156) gravityDenominator = 48;
+      else if (game.stat.level < 164) gravityDenominator = 80;
+      else if (game.stat.level < 174) gravityDenominator = 112;
+      else if (game.stat.level < 180) gravityDenominator = 128;
+      else if (game.stat.level < 200) gravityDenominator = 144;
+      else if (game.stat.level < 212) gravityDenominator = 16;
+      else if (game.stat.level < 221) gravityDenominator = 48;
+      else if (game.stat.level < 232) gravityDenominator = 80;
+      else if (game.stat.level < 244) gravityDenominator = 112;
+      else if (game.stat.level < 256) gravityDenominator = 144;
+      else if (game.stat.level < 267) gravityDenominator = 176;
+      else if (game.stat.level < 277) gravityDenominator = 192;
+      else if (game.stat.level < 287) gravityDenominator = 208;
+      else if (game.stat.level < 295) gravityDenominator = 224;
+      else if (game.stat.level < 300) gravityDenominator = 240;
+      else gravityDenominator = 1;
+      game.piece.gravity = framesToMs(256 / gravityDenominator);
       game.piece.lockDelayLimit = 500;
       game.piece.das = 272;
       game.piece.arr = 17;

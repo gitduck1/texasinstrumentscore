@@ -826,6 +826,7 @@ export const SCORE_TABLES = {
     tspin4: 1200,
     tmini: 100,
     softDrop: 1,
+    sonicDrop: 2,
     hardDrop: 2,
     updateSoftDropImmediately: true,
     hasSpins: true,
@@ -848,6 +849,7 @@ export const SCORE_TABLES = {
     tspin4: 250,
     tmini: 0,
     softDrop: 1,
+    sonicDrop: 2,
     hardDrop: 2,
     updateSoftDropImmediately: true,
     hasSpins: true,
@@ -864,6 +866,8 @@ export const SCORE_TABLES = {
     erase3: 300,
     erase4: 1200,
     softDrop: 1,
+    sonicDrop: 2,
+    hardDrop: 2,
     updateSoftDropImmediately: false,
     levelAdditive: 1,
     levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4'],
@@ -871,16 +875,19 @@ export const SCORE_TABLES = {
     b2bMultiplied: [],
   },
   arcade: {
-    erase1: 0,
-    erase2: 0,
-    erase3: 0,
-    erase4: 0,
+    erase1: 10,
+    erase2: 20,
+    erase3: 40,
+    erase4: 80,
     softDrop: 1,
+    sonicDrop: 2,
+    hardDrop: 2,
     updateSoftDropImmediately: false,
     levelAdditive: 0,
     levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4'],
     b2bMultiplier: 1,
     b2bMultiplied: [],
+    combo: 5
   }
 };
 

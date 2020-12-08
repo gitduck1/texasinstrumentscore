@@ -5,6 +5,7 @@
       "hiddenHeight": 4,
       "pieces": "standard",
       "unfavored": null,
+      "default": true,
       "randomizer": "history6rolls",
       "rotationSystem": "ars",
       "skin": "arika",
@@ -13,10 +14,6 @@
       "hasDangerBgm": true,
       "scoreTable": "arcade",
       "background": "marathon.jpg"
-    },
-    "piece": {
-      "areLimit": 432,
-      "areLineLimit": 640
     },
     "next": {
       "nextLimit": 1
@@ -27,7 +24,6 @@
     "stats": [
       "score",
       "level",
-      "fallspeed",
       "line"
     ]
   }

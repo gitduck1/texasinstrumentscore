@@ -1,6 +1,6 @@
 import input from '../../input.js';
 
-export default function hardDrop(arg) {
+export default function sonicDrop(arg) {
   if (input.getGamePress('hardDrop')) {
     arg.piece.sonicDrop();
     if (arg.piece.breakHoldingTimeOnSoftDrop) {

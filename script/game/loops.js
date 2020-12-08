@@ -148,8 +148,8 @@ export const loops = {
       else gravityDenominator = 1;
       game.piece.gravity = framesToMs(256 / gravityDenominator);
       game.piece.lockDelayLimit = 500;
-      game.piece.das = 272;
-      game.piece.arr = 17;
+      game.piece.dasLimit = 272;
+      game.piece.arrLimit = 17;
       game.piece.ghostIsVisible = game.stat.level < 100;
       updateFallSpeed(game);
     },

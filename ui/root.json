@@ -42,9 +42,9 @@
     {
       "string": "arcadeLabel",
       "stringDesc": "arcadeDescription",
-      "disabled": true,
       "width": "half",
-      "action": "submenu"
+      "action": "submenu",
+      "submenu": "arcade"
     },
     {
       "string": "settingsOverline",

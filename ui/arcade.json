@@ -1,0 +1,16 @@
+{
+    "properties": {
+      "parent": "root",
+      "vox": "menuarcade"
+    },
+    "data": [
+      {
+        "label": "NOVICE",
+        "description": "A slow game for beginners.",
+        "fixedText": true,
+        "action": "game",
+        "game": "novice"
+      }
+    ]
+  }
+  

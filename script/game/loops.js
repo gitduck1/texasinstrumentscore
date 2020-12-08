@@ -2,6 +2,7 @@ import $, {framesToMs, resetAnimation} from '../shortcuts.js';
 import {gravity, classicGravity, deluxeGravity} from './loop-modules/gravity.js';
 import {PIECE_COLORS} from '../consts.js';
 import collapse from './loop-modules/collapse.js';
+import firmDrop from './loop-modules/firm-drop.js';
 import gameHandler from './game-handler.js';
 import handheldDasAre from './loop-modules/handheld-das-are.js';
 import hardDrop from './loop-modules/hard-drop.js';
@@ -16,6 +17,7 @@ import rotate from './loop-modules/rotate.js';
 import rotate180 from './loop-modules/rotate-180.js';
 import shifting from './loop-modules/shifting.js';
 import shiftingRetro from './loop-modules/shifting-retro.js';
+import sonicDrop from './loop-modules/sonic-drop.js';
 import softDrop from './loop-modules/soft-drop.js';
 import softDropRetro from './loop-modules/soft-drop-retro.js';
 import softDropNes from './loop-modules/soft-drop-nes.js';
@@ -49,6 +51,58 @@ const levelUpdate = (game) => {
   return returnValue;
 };
 export const loops = {
+  novice: {
+    update: (arg) => {
+      collapse(arg, true, 300);
+      if (arg.piece.inAre) {
+        initialDas(arg);
+        initialRotation(arg);
+        initialHold(arg);
+        arg.piece.are += arg.ms;
+      } else {
+        respawnPiece(arg);
+        rotate(arg);
+        shifting(arg);
+      }
+      gravity(arg);
+      sonicDrop(arg);
+      firmDrop(arg);
+      classicLockdown(arg);
+      if (!arg.piece.inAre) {
+        hold(arg);
+      }
+      lockFlash(arg);
+      updateLasts(arg);
+    },
+    onPieceSpawn: (game) => {
+      if (game.stat.initPieces === 0 && game.stat.level !== 299) {
+        game.stat.level = game.stat.level + 1;
+      } else if (game.stat.level === 299 && !game.playedLevelStop) {
+        sound.add('tspin0')
+        game.playedLevelStop = true;
+      } else if (game.stat.level === 300) {
+        $('#kill-message').textContent = locale.getString('ui', 'excellent');
+        sound.killVox();
+        sound.add('voxexcellent');
+        game.end(true);
+      } else {
+        game.stat.initPieces = game.stat.initPieces - 1;
+      }
+      game.piece.gravity = 1000;
+      game.piece.lockDelayLimit = 500;
+      game.piece.das = 272;
+      game.piece.arr = 17;
+      updateFallSpeed(game);
+    },
+    onInit: (game) => {
+      game.stat.level = 0;
+      game.playedLevelStop = false;
+      game.stat.initPieces = 2;
+      game.piece.gravity = 1000;
+      updateFallSpeed(game);
+      game.updateStats();
+    },
+  },
   marathon: {
     update: (arg) => {
       collapse(arg);

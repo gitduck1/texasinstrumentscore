@@ -476,7 +476,7 @@ export default class Stack extends GameModule {
       return;
     }
   }
-  collapse() {
+  collapse(linesToLevel = false, levelLimit = 0) {
     if (this.toCollapse.length === 0) {
       return;
     }
@@ -494,6 +494,9 @@ export default class Stack extends GameModule {
       }
     }
     this.parent.stat.line += this.lineClear;
+    if (linesToLevel) {
+      this.parent.stat.level = Math.min(levelLimit, this.parent.stat.level + this.lineClear);
+    }
     this.parent.addScore(`erase${this.lineClear}`);
     this.parent.updateStats();
     sound.add('collapse');

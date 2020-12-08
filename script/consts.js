@@ -870,6 +870,18 @@ export const SCORE_TABLES = {
     b2bMultiplier: 1,
     b2bMultiplied: [],
   },
+  arcade: {
+    erase1: 0,
+    erase2: 0,
+    erase3: 0,
+    erase4: 0,
+    softDrop: 1,
+    updateSoftDropImmediately: false,
+    levelAdditive: 0,
+    levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4'],
+    b2bMultiplier: 1,
+    b2bMultiplied: [],
+  }
 };
 
 export const SPIN_POINTS = {

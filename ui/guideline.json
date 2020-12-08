@@ -43,7 +43,7 @@
     },
     {
       "label": "NIGHT OF NIGHTS",
-      "description": "",
+      "description": "Forced 3 pieces per second! Good luck.",
       "fixedText": true,
       "action": "game",
       "game": "non"

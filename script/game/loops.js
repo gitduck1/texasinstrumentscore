@@ -150,13 +150,13 @@ export const loops = {
       game.piece.lockDelayLimit = 500;
       game.piece.das = 272;
       game.piece.arr = 17;
+      game.piece.ghostIsVisible = game.stat.level < 100;
       updateFallSpeed(game);
     },
     onInit: (game) => {
       game.stat.level = 0;
       game.playedLevelStop = false;
       game.stat.initPieces = 2;
-      game.piece.gravity = 1000;
       updateFallSpeed(game);
       game.updateStats();
     },

@@ -649,21 +649,26 @@ export default class Piece extends GameModule {
     const drop = this.getDrop();
     this.y += drop;
     this.isDirty = true;
+    return drop;
+  }
+  realSonicDrop() {
+    const drop = this.sonicDrop();
+
     if (!this.isDead) {
-      this.parent.addScore('sonicDrop', drop)
+      this.parent.addScore('sonicDrop', drop);
       sound.add('land');
       this.genDropParticles();
     }
   }
   hardDrop() {
-    const drop = this.getDrop();
-    this.y += drop;
-    this.isDirty = true;
     if (!this.isDead) {
-      this.parent.addScore('hardDrop', drop)
+      const drop = this.getDrop();
+      this.parent.addScore('hardDrop', drop);
       sound.add('harddrop');
       this.genDropParticles();
     }
+
+    this.sonicDrop();
     this.hasHardDropped = true;
     this.mustLock = true;
   }

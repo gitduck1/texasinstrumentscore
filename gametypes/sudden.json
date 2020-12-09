@@ -25,6 +25,7 @@
       "isDisabled": true
     },
     "stats": [
+      "grade",
       "score",
       "level",
       "line"

@@ -34,6 +34,7 @@ class Locale {
       }
       return str;
     } catch (error) {
+      if (name === "grade") return "Grade";
       return '?UNKNOWN';
     }
   }

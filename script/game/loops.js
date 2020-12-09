@@ -80,8 +80,7 @@ export const loops = {
       updateLasts(arg);
     },
     onInit: (game) => {
-      game.stat.level = 990;
-      game.timePassed = 200000;
+      game.stat.level = 0;
       game.piece.gravity = framesToMs(1 / 20);
       game.torikanPassed = false;
       game.stat.initPieces = 2;

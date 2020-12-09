@@ -653,6 +653,7 @@ export default class Piece extends GameModule {
     if (!this.isDead) {
       const drop = this.getDrop();
       this.parent.addScore('sonicDrop', drop);
+      sound.add('land')
       this.genDropParticles();
     }
     this.sonicDrop();

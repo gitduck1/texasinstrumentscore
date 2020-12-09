@@ -887,8 +887,23 @@ export const SCORE_TABLES = {
     levelMultiplied: ['erase1', 'erase2', 'erase3', 'erase4'],
     b2bMultiplier: 1,
     b2bMultiplied: [],
-    combo: 5
-  }
+    combo: 5,
+  },
+  blank: {
+    erase1: 0,
+    erase2: 0,
+    erase3: 0,
+    erase4: 0,
+    softDrop: 0,
+    sonicDrop: 0,
+    hardDrop: 0,
+    updateSoftDropImmediately: false,
+    levelAdditive: 0,
+    levelMultiplied: [],
+    b2bMultiplier: 1,
+    b2bMultiplied: [],
+    combo: 0,
+  },
 };
 
 export const SPIN_POINTS = {

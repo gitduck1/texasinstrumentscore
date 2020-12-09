@@ -9,8 +9,8 @@ class Settings {
       // Tuning
       DAS: 170,
       ARR: 30,
-      IRS: 'tap',
-      IHS: 'tap',
+      IRS: 'hold',
+      IHS: 'hold',
       IAS: true,
       rotationSystem: 'auto',
       // Graphics

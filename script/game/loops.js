@@ -11,6 +11,7 @@ import hyperSoftDrop from './loop-modules/hyper-soft-drop.js';
 import initialDas from './loop-modules/initial-das.js';
 import initialHold from './loop-modules/initial-hold.js';
 import initialRotation from './loop-modules/initial-rotation.js';
+import linesToLevel from './loop-modules/lines-to-level.js';
 import lockFlash from './loop-modules/lock-flash.js';
 import respawnPiece from './loop-modules/respawn-piece.js';
 import rotate from './loop-modules/rotate.js';
@@ -53,7 +54,7 @@ const levelUpdate = (game) => {
 export const loops = {
   death: {
     update: (arg) => {
-      collapse(arg, true, 300);
+      collapse(arg);
       if (arg.piece.inAre) {
         initialDas(arg);
         initialRotation(arg);
@@ -78,7 +79,8 @@ export const loops = {
   
   novice: {
     update: (arg) => {
-      collapse(arg, true, 300);
+      linesToLevel(arg, 300);
+      collapse(arg);
       if (arg.piece.inAre) {
         initialDas(arg);
         initialRotation(arg);
@@ -113,39 +115,21 @@ export const loops = {
       } else {
         game.stat.initPieces = game.stat.initPieces - 1;
       }
-      let gravityDenominator;
-           if (game.stat.level < 8)   gravityDenominator = 4;
-      else if (game.stat.level < 19)  gravityDenominator = 5;
-      else if (game.stat.level < 35)  gravityDenominator = 6;
-      else if (game.stat.level < 40)  gravityDenominator = 8;
-      else if (game.stat.level < 50)  gravityDenominator = 10;
-      else if (game.stat.level < 60)  gravityDenominator = 12;
-      else if (game.stat.level < 70)  gravityDenominator = 16;
-      else if (game.stat.level < 80)  gravityDenominator = 32;
-      else if (game.stat.level < 90)  gravityDenominator = 48;
-      else if (game.stat.level < 100) gravityDenominator = 64;
-      else if (game.stat.level < 108) gravityDenominator = 4;
-      else if (game.stat.level < 119) gravityDenominator = 5;
-      else if (game.stat.level < 125) gravityDenominator = 6;
-      else if (game.stat.level < 131) gravityDenominator = 8;
-      else if (game.stat.level < 139) gravityDenominator = 12;
-      else if (game.stat.level < 149) gravityDenominator = 32;
-      else if (game.stat.level < 156) gravityDenominator = 48;
-      else if (game.stat.level < 164) gravityDenominator = 80;
-      else if (game.stat.level < 174) gravityDenominator = 112;
-      else if (game.stat.level < 180) gravityDenominator = 128;
-      else if (game.stat.level < 200) gravityDenominator = 144;
-      else if (game.stat.level < 212) gravityDenominator = 16;
-      else if (game.stat.level < 221) gravityDenominator = 48;
-      else if (game.stat.level < 232) gravityDenominator = 80;
-      else if (game.stat.level < 244) gravityDenominator = 112;
-      else if (game.stat.level < 256) gravityDenominator = 144;
-      else if (game.stat.level < 267) gravityDenominator = 176;
-      else if (game.stat.level < 277) gravityDenominator = 192;
-      else if (game.stat.level < 287) gravityDenominator = 208;
-      else if (game.stat.level < 295) gravityDenominator = 224;
-      else if (game.stat.level < 300) gravityDenominator = 240;
-      else gravityDenominator = 1;
+      let gravityDenominator = 1;
+      const gravityTable = [
+        [8,4],[19,5],[35,6],[40,8],[50,10],[60,12],[70,16],[80,32],[90,48],[100,64],
+        [108,4],[119,5],[125,6],[131,8],[139,12],[149,32],[156,48],[164,80],[174,112],
+        [180,128],[200,144],[212,16],[221,48],[232,80],[244,112],[256,144],[267,176],
+        [277,192],[287,208],[295,224],[300,240]
+      ]
+      for (const pair of gravityTable) {
+        const level = pair[0];
+        const denom = pair[1];
+        if (game.stat.level < level) {
+          gravityDenominator = denom;
+          break;
+        }
+      }
       game.piece.gravity = framesToMs(256 / gravityDenominator);
       game.piece.ghostIsVisible = game.stat.level < 100;
       updateFallSpeed(game);
@@ -154,6 +138,7 @@ export const loops = {
       game.stat.level = 0;
       game.playedLevelStop = false;
       game.stat.initPieces = 2;
+      game.appends.level = `<span class="small">/300</span>`;
       updateFallSpeed(game);
       game.updateStats();
     },

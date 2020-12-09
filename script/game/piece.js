@@ -650,7 +650,7 @@ export default class Piece extends GameModule {
     this.isDirty = true;
   }
   realSonicDrop() {
-    if (!this.isDead) {
+    if (!this.isDead && !this.isLanded) {
       const drop = this.getDrop();
       this.parent.addScore('sonicDrop', drop);
       sound.add('land')

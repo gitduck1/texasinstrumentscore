@@ -140,7 +140,7 @@ export const loops = {
       }
       if ((game.stat.level >= 500 && !game.torikanPassed && game.timePassed >= 205000)
       || game.stat.level === 999) {
-        game.stat.grade = "GM";
+        if (game.stat.level < 999) game.stat.level = 500;
         $('#kill-message').textContent = locale.getString('ui', 'excellent');
         sound.killVox();
         sound.add('voxexcellent');

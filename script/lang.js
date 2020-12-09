@@ -95,6 +95,7 @@ class Locale {
     settings.saveSettings();
   }
   updateTitle() {
+    document.documentElement.style.setProperty('--logo-image', `url("../img/brand/logo/default.svg")`);
     return;
     switch (this.currentLanguage) {
       case 'ja_JP':

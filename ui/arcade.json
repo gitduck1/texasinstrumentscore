@@ -11,6 +11,13 @@
         "default": true,
         "action": "game",
         "game": "novice"
+      },
+      {
+        "label": "SUDDEN",
+        "description": "The pieces spawn on the ground and only get faster!",
+        "fixedText": true,
+        "action": "game",
+        "game": "sudden"
       }
     ]
   }

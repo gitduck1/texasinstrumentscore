@@ -722,7 +722,11 @@ export default class Stack extends GameModule {
     }
     this.dirtyCells = [];
   }
-  linesToLevel(levelLimit) {
-    this.parent.stat.level = Math.min(levelLimit, this.parent.stat.level + this.parent.stack.lineClear);
+  linesToLevel(levelLimit, levelsPerSection) {
+    const newLevel = Math.min(levelLimit, this.parent.stat.level + this.parent.stack.lineClear);
+    if (Math.floor(this.parent.stat.level / levelsPerSection) < Math.floor(newLevel / levelsPerSection)) {
+      sound.add('levelup')
+    }
+    this.parent.stat.level = newLevel
   }
 }

@@ -95,6 +95,7 @@ class Locale {
     settings.saveSettings();
   }
   updateTitle() {
+    return;
     switch (this.currentLanguage) {
       case 'ja_JP':
         document.title = 'テトラレジェンズ';

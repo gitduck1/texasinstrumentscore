@@ -59,6 +59,9 @@ export const loops = {
       linesToLevel(arg, 999, 100);
       game.endSectionLevel = game.stat.level >= 900 ? 999 : Math.floor((game.stat.level / 100) + 1) * 100;
       game.appends.level = `<span class="small">/${game.endSectionLevel}</span>`;
+      if (game.stat.level >= 500 && game.timePassed <= 205000) game.torikanPassed = true;
+      if (game.stat.level >= 999) game.stat.grade = "GM";
+      else if (game.stat.level >= 500 && game.torikanPassed) game.stat.grade = "M";
       collapse(arg);
       if (arg.piece.inAre) {
         initialDas(arg);
@@ -86,6 +89,7 @@ export const loops = {
       game.piece.gravity = framesToMs(1 / 20);
       game.torikanPassed = false;
       game.stat.initPieces = 2;
+      game.endingStats.grade = true;
       game.updateStats();
     },
     onPieceSpawn: (game) => {
@@ -142,7 +146,6 @@ export const loops = {
         sound.add('voxexcellent');
         game.end(true);
       }
-      if (game.stat.level >= 500) { game.torikanPassed = true; game.stat.grade = "M"; }
       if (game.stat.initPieces === 0 &&
         (game.stat.level % 100 !== 99 && game.stat.level !== 998)) {
         game.stat.level = game.stat.level + 1;

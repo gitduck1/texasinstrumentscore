@@ -123,6 +123,11 @@
           "label": "Tengen",
           "fixedText": true,
           "value": "tengen"
+        },
+		{
+          "label": "Sega (1988)",
+          "fixedText": true,
+          "value": "sega88"
         }
       ],
       "setting": "soundbank",

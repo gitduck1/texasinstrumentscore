@@ -90,6 +90,7 @@ export const loops = {
       game.torikanPassed = false;
       game.stat.initPieces = 2;
       game.endingStats.grade = true;
+      game.musicProgression = 0;
       game.updateStats();
     },
     onPieceSpawn: (game) => {
@@ -98,6 +99,7 @@ export const loops = {
       const areLineTable = [[101,12],[401,6],[500,5],[1000,4]]
       const dasTable = [[200,12],[300,11],[400,10],[1000,8]]
       const lockDelayTable = [[101,30],[201,26],[301,22],[401,18],[1000,15]]
+      const musicProgressionTable = [[280,1],[300,2],[480,3],[500,4]]
       for (const pair of areTable) {
         const level = pair[0];
         const entry = pair[1];
@@ -138,6 +140,28 @@ export const loops = {
           break;
         }
       }
+      for (const pair of musicProgressionTable) {
+        const level = pair[0];
+        const entry = pair[1];
+        if (game.stat.level >= level && game.musicProgression < entry) {
+          switch (entry) {
+            case 1:
+            case 3:
+              sound.killBgm();
+              break;
+            case 2:
+              sound.loadBgm(["survival"], "survival");
+              sound.killBgm();
+              sound.playBgm(["survival"], "survival");
+              break;
+            case 4:
+              sound.loadBgm(["master-last"], "master");
+              sound.killBgm();
+              sound.playBgm(["master-last"], "master");
+          }
+          game.musicProgression = entry;
+        }
+      }
       if ((game.stat.level >= 500 && !game.torikanPassed && game.timePassed >= 205000)
       || game.stat.level === 999) {
         if (game.stat.level < 999) game.stat.level = 500;
@@ -154,6 +178,7 @@ export const loops = {
         game.stat.initPieces = game.stat.initPieces - 1;
       }
       
+
       updateFallSpeed(game);
     }
   },

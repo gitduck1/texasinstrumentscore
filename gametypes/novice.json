@@ -11,7 +11,7 @@
       "soundbank": "standard",
       "music": "../marathon/marathon",
       "hasDangerBgm": true,
-      "scoreTable": "arcade",
+      "scoreTable": "blank",
       "background": "marathon.jpg"
     },
     "piece": {

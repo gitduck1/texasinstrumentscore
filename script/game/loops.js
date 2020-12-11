@@ -1,6 +1,8 @@
-import $, {framesToMs, resetAnimation} from '../shortcuts.js';
+import $, {framesToMs, resetAnimation, roundMsToFrames} from '../shortcuts.js';
 import {gravity, classicGravity, deluxeGravity} from './loop-modules/gravity.js';
 import {PIECE_COLORS, SOUND_SETS} from '../consts.js';
+import addStaticScore from './loop-modules/add-static-score.js';
+import arcadeScore from './loop-modules/arcade-score.js';
 import collapse from './loop-modules/collapse.js';
 import firmDrop from './loop-modules/firm-drop.js';
 import gameHandler from './game-handler.js';
@@ -56,6 +58,7 @@ export const loops = {
     update: (arg) => {
       const game = gameHandler.game;
       game.b2b = 0;
+      arcadeScore(arg)
       linesToLevel(arg, 999, 100);
       game.endSectionLevel = game.stat.level >= 900 ? 999 : Math.floor((game.stat.level / 100) + 1) * 100;
       game.appends.level = `<span class="small">/${game.endSectionLevel}</span>`;
@@ -91,6 +94,7 @@ export const loops = {
       game.stat.initPieces = 2;
       game.endingStats.grade = true;
       game.musicProgression = 0;
+      game.drop = 0;
       game.updateStats();
     },
     onPieceSpawn: (game) => {
@@ -186,6 +190,9 @@ export const loops = {
   novice: {
     update: (arg) => {
       gameHandler.game.b2b = 0;
+      if (input.getGameDown('softDrop')) {gameHandler.game.drop += arg.ms;}
+      if (input.getGamePress('hardDrop')) {gameHandler.game.drop += framesToMs(2 * arg.piece.getDrop());}
+      arcadeScore(arg, roundMsToFrames(gameHandler.game.drop), 6)
       linesToLevel(arg, 300, 300);
       collapse(arg);
       if (arg.piece.inAre) {
@@ -209,7 +216,9 @@ export const loops = {
       updateLasts(arg);
     },
     onPieceSpawn: (game) => {
+      game.drop = 0;
       if (game.stat.level === 300) {
+        game.stat.score += Math.max(0, (300 - Math.floor(game.timePassed / 1000)) * 1253)
         $('#kill-message').textContent = locale.getString('ui', 'excellent');
         sound.killVox();
         sound.add('voxexcellent');
@@ -243,6 +252,8 @@ export const loops = {
     },
     onInit: (game) => {
       game.stat.level = 0;
+      game.arcadeCombo = 1;
+      game.drop = 0;
       game.stat.initPieces = 2;
       game.appends.level = `<span class="small">/300</span>`;
       updateFallSpeed(game);

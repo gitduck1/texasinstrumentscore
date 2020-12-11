@@ -57,12 +57,12 @@ export const loops = {
   sudden: {
     update: (arg) => {
       const game = gameHandler.game;
+      game.rta += arg.ms;
       game.b2b = 0;
       arcadeScore(arg)
       linesToLevel(arg, 999, 100);
       game.endSectionLevel = game.stat.level >= 900 ? 999 : Math.floor((game.stat.level / 100) + 1) * 100;
       game.appends.level = `<span class="small">/${game.endSectionLevel}</span>`;
-      if (game.stat.level >= 500 && game.timePassed <= 205000) game.torikanPassed = true;
       if (game.stat.level >= 999) game.stat.grade = "GM";
       else if (game.stat.level >= 500 && game.torikanPassed) game.stat.grade = "M";
       collapse(arg);
@@ -79,7 +79,8 @@ export const loops = {
       gravity(arg);
       sonicDrop(arg, true);
       firmDrop(arg, 1, true);
-      classicLockdown(arg);
+      extendedLockdown(arg);
+      //classicLockdown(arg);
       if (!arg.piece.inAre) {
         hold(arg);
       }
@@ -89,6 +90,7 @@ export const loops = {
     onInit: (game) => {
       game.stat.level = 0;
       game.stat.grade = "";
+      game.rta = 0;
       game.piece.gravity = framesToMs(1 / 20);
       game.torikanPassed = false;
       game.stat.initPieces = 2;
@@ -103,7 +105,7 @@ export const loops = {
       const areLineTable = [[101,12],[401,6],[500,5],[1000,4]]
       const dasTable = [[200,12],[300,11],[400,10],[1000,8]]
       const lockDelayTable = [[101,30],[201,26],[301,22],[401,18],[1000,15]]
-      const musicProgressionTable = [[280,1],[300,2],[480,3],[500,4]]
+      const musicProgressionTable = [[279,1],[300,2],[479,3],[500,4]]
       for (const pair of areTable) {
         const level = pair[0];
         const entry = pair[1];
@@ -166,8 +168,8 @@ export const loops = {
           game.musicProgression = entry;
         }
       }
-      if ((game.stat.level >= 500 && !game.torikanPassed && game.timePassed >= 205000)
-      || game.stat.level === 999) {
+      if (game.stat.level >= 500 && game.rta <= 205000) game.torikanPassed = true;
+      else if ((game.stat.level >= 500 && !game.torikanPassed) || game.stat.level === 999) {
         if (game.stat.level < 999) game.stat.level = 500;
         $('#kill-message').textContent = locale.getString('ui', 'excellent');
         sound.killVox();

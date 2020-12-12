@@ -2,26 +2,25 @@
   "files": [
     "alarm",
 	"b2b",
-    "collapse",
-    "erase1",
-    "erase2",
-    "erase3",
-    "erase4",
-    "excellent",
-    "gameover",
-	"harddrop"
-    "hold",
+	"collapse",
+	"erase1",
+	"erase2",
+	"erase3",
+	"erase4",
+	"excellent",
+	"harddrop",
+	"hold",
     "ko",
-    "land",
+	"land",
     "levelup",
     "locknohd",
-    "move",
-    "pause",
+	"move",
+	"pause",
     "ready",
-    "rotate",
-    "start",
-    "step",
-    "tspin"
+	"rotate",
+    "start"
+	"step",
+	"tspin"
   ],
   "ren": []
 }

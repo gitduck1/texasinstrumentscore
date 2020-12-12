@@ -128,6 +128,16 @@
           "label": "Sega (1988)",
           "fixedText": true,
           "value": "sega88"
+        },
+		{
+          "label": "flashpointLabel",
+          "langOverride": "sound",
+          "value": "flashpoint"
+        },
+		{
+          "label": "newcenturyLabel",
+          "langOverride": "sound",
+          "value": "newcentury"
         }
       ],
       "setting": "soundbank",

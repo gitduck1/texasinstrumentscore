@@ -18,7 +18,7 @@
 	"pause",
     "ready",
 	"rotate",
-    "start"
+    "start",
 	"step",
 	"tspin"
   ],

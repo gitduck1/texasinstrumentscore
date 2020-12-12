@@ -79,8 +79,8 @@ export const loops = {
       gravity(arg);
       sonicDrop(arg, true);
       firmDrop(arg, 1, true);
-      extendedLockdown(arg);
-      //classicLockdown(arg);
+      //extendedLockdown(arg);
+      classicLockdown(arg);
       if (!arg.piece.inAre) {
         hold(arg);
       }
@@ -89,6 +89,7 @@ export const loops = {
     },
     onInit: (game) => {
       game.stat.level = 0;
+      game.isRaceMode = true;
       game.stat.grade = "";
       game.rta = 0;
       game.piece.gravity = framesToMs(1 / 20);
@@ -192,6 +193,7 @@ export const loops = {
   novice: {
     update: (arg) => {
       gameHandler.game.b2b = 0;
+      gameHandler.game.rta += arg.ms;
       if (input.getGameDown('softDrop')) {gameHandler.game.drop += arg.ms;}
       if (input.getGamePress('hardDrop')) {gameHandler.game.drop += framesToMs(2 * arg.piece.getDrop());}
       arcadeScore(arg, roundMsToFrames(gameHandler.game.drop), 6)
@@ -220,7 +222,7 @@ export const loops = {
     onPieceSpawn: (game) => {
       game.drop = 0;
       if (game.stat.level === 300) {
-        game.stat.score += Math.max(0, (300 - Math.floor(game.timePassed / 1000)) * 1253)
+        game.stat.score += Math.max(0, (300 - Math.floor(game.rta / 1000)) * 1253)
         $('#kill-message').textContent = locale.getString('ui', 'excellent');
         sound.killVox();
         sound.add('voxexcellent');
@@ -254,6 +256,8 @@ export const loops = {
     },
     onInit: (game) => {
       game.stat.level = 0;
+      game.rta = 0;
+      game.isRaceMode = true;
       game.arcadeCombo = 1;
       game.drop = 0;
       game.stat.initPieces = 2;

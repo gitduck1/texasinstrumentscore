@@ -130,13 +130,13 @@
           "value": "sega88"
         },
 		{
-          "label": "flashpointLabel",
-          "langOverride": "sound",
+          "label": "Flash Point",
+          "fixedText": true,
           "value": "flashpoint"
         },
 		{
-          "label": "newcenturyLabel",
-          "langOverride": "sound",
+          "label": "New Century",
+          "fixedText": true,
           "value": "newcentury"
         }
       ],

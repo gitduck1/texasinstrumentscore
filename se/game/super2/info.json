@@ -11,7 +11,8 @@
     "locknohd",
     "ready",
     "rotate",
-    "start"
+    "start",
+	"tspin"
   ],
   "ren": [
     1,

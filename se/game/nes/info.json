@@ -16,7 +16,8 @@
     "levelup",
     "locknohd",
     "move",
-    "rotate"
+    "rotate",
+	"tspin"
   ],
   "ren": []
 }

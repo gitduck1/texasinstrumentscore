@@ -507,7 +507,7 @@ export const loops = {
         shifting(arg);
       }
       gravity(arg);
-      softDrop(arg, 70);
+      hyperSoftDrop(arg);
       hardDrop(arg);
       extendedLockdown(arg);
       if (!arg.piece.inAre) {

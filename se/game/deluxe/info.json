@@ -11,7 +11,8 @@
     "lock",
     "move",
     "pause",
-    "rotate"
+    "rotate",
+	"tspin"
   ],
   "ren": []
 }

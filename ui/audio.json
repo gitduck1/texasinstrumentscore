@@ -79,10 +79,20 @@
           "fixedText": true,
           "value": "party"
         },
+		{
+          "label": "Battle",
+          "fixedText": true,
+          "value": "battle"
+        },
         {
           "string": "retroLabel",
           "langOverride": "menu_root",
           "value": "nes"
+        },
+		{
+          "label": "Retro 2J",
+          "fixedText": true,
+          "value": "nes2j"
         },
         {
           "string": "handheldLabel",
@@ -120,6 +130,11 @@
           "value": "snesu"
         },
 		{
+          "label": "Super 2",
+          "fixedText": true,
+          "value": "super2"
+        },
+		{
           "label": "Tengen",
           "fixedText": true,
           "value": "tengen"
@@ -128,6 +143,16 @@
           "label": "Sega (1988)",
           "fixedText": true,
           "value": "sega88"
+        },
+		{
+          "label": "Flash Point",
+          "fixedText": true,
+          "value": "flashpoint"
+        },
+		{
+          "label": "New Century",
+          "fixedText": true,
+          "value": "newcentury"
         }
       ],
       "setting": "soundbank",

@@ -17,7 +17,7 @@
     "description": "'Matrix Sway' can also be called field movement, screen shake, etc; 'scale' is how much magnitude it has in general"
   },
   "swayScaleDescription": {
-    "message": "How far the matrix moves to the force of the pieces in percentage. Selecting O disables the effect entirely",
+    "message": "How far the matrix moves to the force of the pieces in percentage. Set this to 0 to disable the effect entirely",
     "description": "The 'matrix' is also known as the 'playfield'"
   },
   "swaySpeedLabel": {

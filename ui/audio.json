@@ -79,10 +79,20 @@
           "fixedText": true,
           "value": "party"
         },
+		{
+          "label": "Battle",
+          "fixedText": true,
+          "value": "battle"
+        },
         {
           "string": "retroLabel",
           "langOverride": "menu_root",
           "value": "nes"
+        },
+		{
+          "label": "Retro 2J",
+          "fixedText": true,
+          "value": "nes2j"
         },
         {
           "string": "handheldLabel",
@@ -118,6 +128,11 @@
           "label": "SNES T+Dr. M.",
           "fixedText": true,
           "value": "snesu"
+        },
+		{
+          "label": "Super 2",
+          "fixedText": true,
+          "value": "super2"
         },
 		{
           "label": "Tengen",

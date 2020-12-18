@@ -1,6 +1,29 @@
 # tetralegends
 Tetris clone in HTML5
 
+## ALPHA V9.0.0-pre1 - 2020-12-18
+
+* Tetra Legends Plus is now available on desktop!
+
+* New arcade modes:
+  * Novice
+  * Sudden
+
+* New soundpacks:
+  * TGM Ace
+  * Tetris Battle
+  * Flash Point
+  * Retro 2J (Tetris 2+Bombliss)
+  * New Century
+  * Sega 88
+  * SNES Dr. Mario + Tetris
+  * Super Tetris 2
+  * Tengen
+  * Uehara
+
+* New piece sounds:
+  * TGM 1
+
 ## ALPHA V8.1.0 - 2020-09-05
 
 * New Voices

@@ -1,6 +1,7 @@
 {
   "files": [
-    "b2b",
+    "alarm",
+	"b2b",
     "bravo",
     "collapse",
     "erase1",
@@ -12,6 +13,7 @@
     "hold",
     "initialhold",
     "initialrotate",
+	"initialskip",
     "ko",
     "land",
     "levelup",
@@ -20,6 +22,7 @@
     "pause",
     "ready",
     "rotate",
+	"skip",
     "start",
     "step",
     "topoutwarning",

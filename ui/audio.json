@@ -84,6 +84,16 @@
           "fixedText": true,
           "value": "battle"
         },
+		{
+          "label": "Battle Plus",
+          "fixedText": true,
+          "value": "battleplus"
+        },
+		{
+          "label": "Friends 1989",
+          "fixedText": true,
+          "value": "friends1989"
+        },
         {
           "string": "retroLabel",
           "langOverride": "menu_root",

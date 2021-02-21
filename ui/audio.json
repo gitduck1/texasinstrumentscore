@@ -134,7 +134,12 @@
           "fixedText": true,
           "value": "uehara"
         },
-				{
+		{
+          "label": "Bejeweled",
+          "fixedText": true,
+          "value": "bej"
+        },
+		{
           "label": "SNES T+Dr. M.",
           "fixedText": true,
           "value": "snesu"

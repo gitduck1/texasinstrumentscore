@@ -85,9 +85,14 @@
           "value": "battle"
         },
 		{
-          "label": "Battle Plus",
+          "label": "FireTV + Battle Fusion",
           "fixedText": true,
           "value": "battleplus"
+        },
+		{
+          "label": "Battle Drop",
+          "fixedText": true,
+          "value": "battledrop"
         },
 		{
           "label": "Friends 1989",

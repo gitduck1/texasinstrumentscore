@@ -12,12 +12,17 @@
     "hold",
     "initialhold",
     "initialrotate",
+    "initialskip",
     "ko",
     "levelup",
     "locknohd",
     "move",
+    "pause",
+    "ready",
     "rotate",
-	"tspin"
+    "skip",
+    "start",
+    "tspin"
   ],
   "ren": []
 }

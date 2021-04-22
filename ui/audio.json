@@ -95,6 +95,16 @@
           "value": "battledrop"
         },
 		{
+          "label": ".com",
+          "fixedText": true,
+          "value": "com"
+        },
+		{
+          "label": "Friends Default",
+          "fixedText": true,
+          "value": "friendsdefault"
+        },
+		{
           "label": "Friends 1989",
           "fixedText": true,
           "value": "friends1989"
@@ -125,6 +135,11 @@
           "value": "tetrio"
         },
         {
+          "label": "Online Japan",
+          "fixedText": true,
+          "value": "onlinejapan"
+        },
+        {
           "label": "NullpoMino",
           "fixedText": true,
           "value": "nullpomino"
@@ -133,6 +148,11 @@
           "label": "N-Blox",
           "fixedText": true,
           "value": "nblox"
+        },
+		{
+          "label": "LJ65",
+          "fixedText": true,
+          "value": "lj65"
         },
 		{
           "label": "Uehara",

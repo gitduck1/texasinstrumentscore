@@ -1,5 +1,7 @@
-# tetralegends
-Tetris clone in HTML5
+# About this game
+Tetra Legends Plus is a revival of Dr Ocelot's game Tetra Legends, an online singleplayer block stacker game in the same genre as Tetris. Like the original game, it is made in HTML5. 
+
+# Change log
 
 ## ALPHA V9.0.0-pre2 - 2021-04-22
 
@@ -33,6 +35,7 @@ Tetris clone in HTML5
 * New piece sounds:
   * TGM 1
 
-## Previous versions by Dr Ocelot can be found at [Dr-Ocelot/tetralegends](https://github.com/Dr-Ocelot/tetralegends)
+**Previous versions by Dr Ocelot can be found through [this link](https://github.com/doktorocelot/tetralegends/blob/master/changelog.html).**
 
-
+Tetra Legends™& ©Dr Ocelot.
+All other trademarks are the property of their respective owners, trademark fair use doctrines apply.
